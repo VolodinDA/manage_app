@@ -1,0 +1,2 @@
+class Errand < ApplicationRecord
+end
