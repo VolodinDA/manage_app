@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ManageApp</title>
+    <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application.css', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application.js', 'data-turbolinks-track': 'reload' %>
+	<%= render 'layouts/shim'%>
   </head>
 
   <body>
-    <%= yield %>
+	<%= render 'layouts/header' %>
+	<div class="container">
+		<% flash.each do |key, value|%>
+			<%= content_tag(:div, value, class: "alert alert-#{key}")%>
+		<% end %>
+		<%= yield %>
+		<%= render 'layouts/footer'%>
+	</div>
   </body>
 </html>
