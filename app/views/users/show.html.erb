@@ -1,9 +1,63 @@
 <% provide(:title, @user.name )%>
-<h1><%= @user.name %></h1>
+<div class=""><h1><%= @user.name %></h1></div>
 <div class="row">
-	<div class="span4">
-		<h3>Users list</h3>
-		<%= render @users %>
-		<%= will_paginate %>
+	<div class="col-lg-3">
+		<div class="panel panel-primary">	
+			<div class="panel-heading"><h2>Users list</h2></div>
+			<div class="panel-body">
+				<%= render @users %>
+				<%= will_paginate %>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-4">
+		<div class="panel panel-default">	
+			<div class="panel-heading"><h2>Main information</h2></div>
+			<div class="panel-body">
+				<section>
+					<%= image_tag("Bionik1.jpg", size: "328x370", alt: "Photo") %>
+					<hr>
+					<h2>Hire date: <@user.hire_date></h2>
+					<hr>
+					<h2>Rewards:</h2>
+					<ul class="list-group">
+						<%= render 'reward' %>
+					</ul>
+				</section>	
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-5">
+		<div class="panel panel-default">	
+			<div class="panel-heading"><h2>Personal information</h2></div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="panel panel-default">
+							<div class="panel-heading"><h3>Assignments</h3></div>
+							<div class="panel-body">
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="panel panel-default">
+							<div class="panel-heading"><h3>Errands</h3></div>
+							<div class="panel-body">
+							</div>
+						</div>
+					</div>
+				</div>
+				<hr>
+				<h2>Characteristics:</h2>
+				<ul class="list-group">
+					<li class="list-group-item">Character Item</li>
+				</ul>
+				<hr>
+				<h2>Languages:</h2>
+				<ul class="list-group">
+					<li class="list-group-item">Language Item</li>
+				</ul>
+			</div>
+		</div>
 	</div>
 </div>

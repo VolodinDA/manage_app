@@ -7,6 +7,9 @@ class User < ApplicationRecord
 	validates :password, length: { minimum: 6 }
 	has_secure_password	
 	
+	include Gravtastic
+	gravtastic
+	
 	# Creating a remember_token to remember the user #
 	
 	def User.new_remember_token
@@ -15,6 +18,10 @@ class User < ApplicationRecord
 	
 	def User.encrypt(token)
 		Digest::SHA1.hexdigest(token.to_s)
+	end
+	
+	def reward_feed
+		name
 	end
 	
 	private

@@ -21,6 +21,7 @@ class UsersController < ApplicationController
 	def show
 		@user=User.find(params[:id])
 		@users=User.paginate(page: params[:page])
+		@reward_items=current_user.reward_feed
 	end
 	
 	def update
