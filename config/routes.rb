@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions, only: [:create, :destroy]
   resources :languages, only: [:create, :destroy]
-  resources :speeches, only[:create, :destroy]
+  resources :speeches, only: [:create, :destroy]
   resources :abilities, only: [:create, :destroy]
   resources :characteristics, only: [:create, :destroy]
   resources :merits, only: [:create, :destroy]
