@@ -2,6 +2,8 @@ class CreateErrands < ActiveRecord::Migration[5.2]
   def change
     create_table :errands do |t|
       t.string :address
+      t.boolean :is_finished, default: false
+      t.integer :user_id
 
       t.timestamps
     end
