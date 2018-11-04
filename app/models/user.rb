@@ -5,11 +5,11 @@ class User < ApplicationRecord
 	VALID_EMAIL_REGEX=/\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 	validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false}
 	validates :password, length: { minimum: 6 }
-	has_secure_password	
-	
-	include Gravtastic
-	gravtastic
-	
+	has_secure_password
+
+	has_many :speeches
+	has_many :languages, through: :speeches
+
 	# Creating a remember_token to remember the user #
 	
 	def User.new_remember_token
