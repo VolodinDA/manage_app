@@ -1,8 +1,8 @@
 namespace :db do
 	desc "Fill database with sample data"
 	task populate: :environment do
-    #make_users
-    #make_languages
+    make_users
+    make_languages
     make_speeches
   end
 end
@@ -14,7 +14,7 @@ def make_users
 								password_confirmation: "foobar",
 								admin: true )
 	99.times do |n|
-		name=Faker::Lebowski.character
+		name=Faker::Name.name
 		email="example-#{n+1}@exam.org"
 		password="password"
 		User.create!(name: name,
@@ -25,7 +25,7 @@ def make_users
 end
 
 def make_languages
-	6.times do
+	5.times do
 	  name=Faker::ElderScrolls.race
 		Language.create!(name: name)
 	end
@@ -33,6 +33,9 @@ end
 
 def make_speeches
 	users=User.all
-	language=Language.first
-	users.each {|user| user.learn_language!(language.id)}
+	languages=Language.all
+	languages.each do
+		|language|
+		users.each {|user| user.learn_language!(language)}
+	end
 end

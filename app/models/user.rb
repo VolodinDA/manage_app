@@ -25,7 +25,7 @@ class User < ApplicationRecord
 	end
 
 	def forget_language!(language)
-		speeches.find_by(user_id: language.id).destroy!
+		speeches.find_by(language_id: language.id).destroy!
 	end
 	
 	def reward_feed
