@@ -7,8 +7,8 @@ class User < ApplicationRecord
 	validates :password, length: { minimum: 6 }
 	has_secure_password
 
-	has_many :speeches
-	has_many :languages, through: :speeches
+	has_many :speeches, foreign_key: "user_id"
+	has_many :languages, through: :speeches, source: :language
 
 	# Creating a remember_token to remember the user #
 	
@@ -18,6 +18,14 @@ class User < ApplicationRecord
 	
 	def User.encrypt(token)
 		Digest::SHA1.hexdigest(token.to_s)
+	end
+
+	def learn_language!(new_language)
+		speeches.create!(language_id: new_language.id)
+	end
+
+	def forget_language!(language)
+		speeches.find_by(user_id: language.id).destroy!
 	end
 	
 	def reward_feed

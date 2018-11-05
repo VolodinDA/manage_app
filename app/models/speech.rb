@@ -1,4 +1,4 @@
 class Speech < ApplicationRecord
-  belongs_to :user
-  belongs_to :language
+  belongs_to :user, required: false
+  belongs_to :language, required: false
 end

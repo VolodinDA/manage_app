@@ -1,4 +1,4 @@
 class Language < ApplicationRecord
-  has_many :speeches
-  has_many :users, through: :speeches
+  has_many :speeches, foreign_key: "lahguage_id"
+  has_many :users, through: :speeches, source: :user
 end
