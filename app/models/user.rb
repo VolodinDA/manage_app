@@ -27,6 +27,10 @@ class User < ApplicationRecord
 	def forget_language!(language)
 		speeches.find_by(language_id: language.id).destroy!
 	end
+
+	def lang_feed
+		Language.learned_by(self)
+	end
 	
 	def reward_feed
 		name
