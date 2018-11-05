@@ -4,6 +4,6 @@ class Language < ApplicationRecord
 
   def self.learned_by(user)
     users_languages_ids=user.language_ids
-    where("id IN (?)",users_languages_ids)
+    where("id IN (?)", users_languages_ids)
   end
 end
