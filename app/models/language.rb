@@ -3,6 +3,7 @@ class Language < ApplicationRecord
   has_many :users, through: :speeches, source: :user
 
   def self.learned_by(user)
-    user.languages_ids
+    users_languages_ids=user.language_ids
+    where("id IN (?)",users_languages_ids)
   end
 end

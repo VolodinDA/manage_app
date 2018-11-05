@@ -22,6 +22,7 @@ class UsersController < ApplicationController
 		@user=User.find(params[:id])
 		@users=User.paginate(page: params[:page])
 		@reward_items=current_user.reward_feed
+		@language_items=current_user.lang_feed
 	end
 	
 	def update
