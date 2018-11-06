@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'speeches/create'
-  get 'speeches/destroy'
   root 'static_pages#home'
   match '/signup', to: 'users#new', via: 'get'
   match '/signout', to: 'sessions#destroy', via: 'delete'  
@@ -14,7 +12,6 @@ Rails.application.routes.draw do
   resources :rewards, only: [:create, :destroy]
   resources :objectives, only: [:create, :destroy]
   resources :departments, only: [:create, :destroy]
-  resources :workers, only: [:create, :destroy]
   resources :assignments, only: [:create, :destroy]
   resources :errands, only: [:create, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

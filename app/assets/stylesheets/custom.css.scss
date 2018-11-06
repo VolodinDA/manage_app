@@ -2,6 +2,12 @@
 
 $grayLight: #999;
 
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 /*universal*/
 
 html {
@@ -15,6 +21,23 @@ body {
 
 textarea {
 	resize: vertical;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.myform {
+  input, textarea, select, .undertable-input {
+    border: 1px solid #bbb;
+    width: 100%;
+    margin-bottom: 15px;
+    @include box-sizing;
+  }
 }
 
 /*typography*/

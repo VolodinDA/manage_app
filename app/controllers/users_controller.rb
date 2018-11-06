@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 	
 	def new
 		@user=User.new
+		@language=Language.new
 	end 
 	
    def create
