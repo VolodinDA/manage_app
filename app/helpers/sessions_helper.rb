@@ -23,7 +23,9 @@ module SessionsHelper
 	def signed_in_user
 		unless signed_in?
 			store_location
-			redirect_to signin_url, notice: "Please sign in." 
+			flash.now[:danger]='Please sign in'
+			render 'static_pages/home'
+			#redirect_to root_url notice: "Please sign in."
 		end
 	end
 	

@@ -29,7 +29,8 @@ class User < ApplicationRecord
 	end
 
 	def lang_feed
-		Language.learned_by(self)
+		self.languages.map(&:name)
+		#Language.learned_by(self)
 	end
 	
 	def reward_feed

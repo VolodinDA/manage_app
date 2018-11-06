@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	before_action :signed_in_user, only: [:edit, :update, :destroy]
+	before_action :signed_in_user, only: [:edit, :show, :update, :destroy]
 	before_action :correct_user, only: [:edit, :update]
 	before_action :admin_user, only: :destroy
 	
@@ -21,8 +21,8 @@ class UsersController < ApplicationController
 	def show
 		@user=User.find(params[:id])
 		@users=User.paginate(page: params[:page])
-		@reward_items=current_user.reward_feed
-		@language_items=current_user.lang_feed
+		@reward_items=@user.reward_feed
+		@language_items=@user.lang_feed
 	end
 	
 	def update
