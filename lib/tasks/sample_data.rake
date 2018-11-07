@@ -7,6 +7,13 @@ namespace :db do
   end
 end
 
+# def random_avatars
+	# require 'choice'
+	# avatars=%w[Bionik1.jpeg Stuff1.jpeg]
+	# avatar=avatars[rand(avatars.size)]
+	# Choice.choises[:avatar]
+# end
+
 def make_users
 	admin=User.create!(name: "Example User",
 								email: "example@exam.org",
@@ -20,7 +27,7 @@ def make_users
 		User.create!(name: name,
 							 	email: email,
 							 	password: password,
-							 	password_confirmation: password)
+							 	password_confirmation: password,)
 	end
 end
 
