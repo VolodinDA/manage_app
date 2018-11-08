@@ -1,0 +1,3 @@
+<%= form_for(current_user.languages.build(language_id: @language.id)) do |f|%>
+	<div><%=f.select() %></div>
+<% end %>
