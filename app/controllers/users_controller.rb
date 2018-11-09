@@ -5,7 +5,6 @@ class UsersController < ApplicationController
 	
 	def new
 		@user=User.new
-		@all_languages=Language.all
 		@speech=@user.speeches.build
 	end 
 	

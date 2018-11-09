@@ -2,8 +2,9 @@ class SpeechesController < ApplicationController
 before_action :signed_in_user
 
   def create
-    @language=Language.find(params[:speech][:language_id])
-    current_user.learn_language!(@language)
+    @speech_cr=current_user.speeches.build
+    @language_cr=Language.find(params[:languages][:id])
+    current_user.learn_language!(@language_cr)
   end
 
   def destroy
