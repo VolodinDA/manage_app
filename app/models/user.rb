@@ -9,7 +9,6 @@ class User < ApplicationRecord
 
 	has_many :speeches, foreign_key: "user_id"
 	has_many :languages, through: :speeches, source: :language
-	accepts_nested_attributes_for :speeches
 
 	# Creating a remember_token to remember the user #
 	
@@ -31,7 +30,6 @@ class User < ApplicationRecord
 
 	def lang_feed
 		self.languages.map(&:name)
-		#Language.learned_by(self)
 	end
 	
 	def reward_feed

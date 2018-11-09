@@ -5,12 +5,16 @@ class UsersController < ApplicationController
 	
 	def new
 		@user=User.new
+		@all_languages=Language.all
+		@speech=@user.speeches.build
 	end 
 	
    def create
 		@user=User.new(user_params)
 		if @user.save
 			sign_in @user
+      @language=Language.find(params[:languages][:id])
+      @user.learn_language!(@language)
 			flash[:success]="Welcome to the Management App!"
 			redirect_to @user
 		else

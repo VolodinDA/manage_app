@@ -21,8 +21,11 @@
             <%= f.label :password_confirmation, "Confirmation" %>
             <%= f.password_field :password_confirmation %>
 
-            <%= form_with model: @language do |lang_form| %>
-              <%=lang_form.collection_select(:languages, Language.all, :id, :name) %>
+            <%= fields_for(@speech) do |sf| %>
+              <div class="field">
+              <%= sf.label "All languages" %>
+              <%= collection_select(:languages, :id, Language.all, :id, :name) %>
+              </div>
             <% end %>
 
             <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>

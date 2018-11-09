@@ -8,7 +8,7 @@ namespace :db do
 end
 
 def random_avatars
-	avatars=%w[Bionik1.jpeg]
+	avatars=%w[Bionik1.jpg CHasovoy2.jpg Farmakolog1.jpg Injener3.jpg Izvlechenie.jpg Kibernetik1.jpg Materialoved1.jpg Medrabotnik3.jpg Mehanotronik1.jpg Perevodchik.jpg Spetsialis2.jpg Spetsialist.jpg Sportsmen1.jpg Strelok1.jpg Zoolog1.jpg]
 	avatar=avatars[rand(avatars.size)]
 end
 
