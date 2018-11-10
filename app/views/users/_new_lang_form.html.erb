@@ -1,0 +1,9 @@
+<%= form_for(@speech, remote: true)  do |model| %>
+  <li class="list-group-item">
+    <div class="field">
+      <%= model.label "Select language" %>
+      <%= collection_select(:languages, :id, Language.all, :id, :name) %>
+      <%= model.submit "Add new language" , class: "btn btn-primary" %>
+    </div>
+  </li>
+<% end %>

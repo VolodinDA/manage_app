@@ -24,6 +24,7 @@ class UsersController < ApplicationController
 	def show
 		@user=User.find(params[:id])
 		@users=User.paginate(page: params[:page])
+		@speech=@user.speeches.build
 		@reward_items=@user.reward_feed
 		@language_items=@user.lang_feed
 	end

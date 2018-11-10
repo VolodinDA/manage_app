@@ -58,7 +58,7 @@
 					<!--<li class="list-group-item">Language Item</li>-->
           <%= render'language' %>
           <% if current_user?(@user) %>
-            <%= render template:'speeches/create' %>
+            <%= render 'new_lang_form' if signed_in? %>
           <% end %>
 				</ul>
 			</div>

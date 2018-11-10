@@ -2,9 +2,12 @@ class SpeechesController < ApplicationController
 before_action :signed_in_user
 
   def create
-    @speech_cr=current_user.speeches.build
-    @language_cr=Language.find(params[:languages][:id])
-    current_user.learn_language!(@language_cr)
+    @language=Language.find(params[:languages][:id])
+    current_user.learn_language!(@language)
+    respond_to do |format|
+      format.html { redirect_to current_user}
+      format.js
+    end
   end
 
   def destroy
