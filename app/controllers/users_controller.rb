@@ -37,6 +37,10 @@ class UsersController < ApplicationController
 			render 'edit'
 		end
 	end
+
+	def index
+		@users=User.paginate(page: params[:page])
+	end
 	
 	def destroy
 		User.find(params[:id]).destroy

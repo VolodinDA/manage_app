@@ -8,5 +8,9 @@ module ApplicationHelper
 			"#{base_title} | #{page_title}"
 		end
 	end
+
+	def admin?(user)
+		user.admin==true
+	end
 	
 end

@@ -1,0 +1,14 @@
+<% provide(:title, 'Stuff list') %>
+<h1>Stuff list</h1>
+
+<%= will_paginate %>
+
+  <table class="table table-striped">
+    <tbody>
+    <%= render @users %>
+    </tbody>
+  </table>
+
+<%= submit_tag "Assign Stuff", class: "btn btn-lg btn-primary" %>
+<hr>
+<%= will_paginate %>
