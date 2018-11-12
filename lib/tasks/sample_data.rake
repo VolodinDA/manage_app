@@ -4,6 +4,9 @@ namespace :db do
     make_users
     make_languages
     make_speeches
+    make_errands
+		make_rewards
+    make_ability
   end
 end
 
@@ -15,7 +18,14 @@ end
 def make_errands
 	10.times do
 	  addres=Faker::Address.full_address
-		Errand.create!(addres: addres)
+		Errand.create!(address: addres)
+	end
+end
+
+def make_objectieves
+	20.times do
+		description=Faker::Lorem.sentence
+		Objective.create!(description: description)
 	end
 end
 
@@ -26,16 +36,9 @@ def make_departments
 	end
 end
 
-def make_objectieves
-	20.times do
-	  description=Faker::Lorem.sentence
-		Objective.create!(description: description)
-	end
-end
-
 def make_rewards
 	10.times do
-	  title=Faker::Military.air_force_rank
+	  title=Faker::Military.unique.air_force_rank
 		description=Faker::Lorem.sentence
 		Reward.create!(title: title,
 									 description: description)
@@ -44,7 +47,7 @@ end
 
 def make_ability
 	20.times do
-	  description=Faker::Hacker.ingverb
+	  description=Faker::Hacker.unique.ingverb
 		Ability.create!(description: description)
 	end
 end
@@ -62,7 +65,6 @@ def make_users
 								password_confirmation: "foobar",
 								admin: true,
 								employment_date: "2018-11-01")
-
 	50.times do |n|
 		name=Faker::Name.name
 		email="example-#{n+1}@exam.org"
@@ -88,8 +90,7 @@ end
 def make_speeches
 	users=User.all
 	languages=Language.all
-	languages.each do
-		|language|
+	languages.each do |language|
 		users.each {|user| user.learn_language!(language)}
 	end
 end
