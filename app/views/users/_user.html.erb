@@ -5,6 +5,16 @@
     <td><h4><%= link_to "delete", user, method: :delete, data: {confirm: "You sure?"} %></h4></td>
   <% end %>
   <% if admin?(current_user) && !current_user?(user) %>
-    <td><h4><%= check_box_tag(user) %></h4></td>
+    <td>
+		<h4>
+			<%= form_for user do |f|%>
+				<% Department.all.each do |department| %>
+					<%= check_box_tag : department_ids, department.id, user.departments.include?(department), name:=>'user[department_ids][]'%>
+					<%= label_tag :department_ids, department.name %>
+				<% end %>
+				<%= f.submit "Assign stuff" %>
+			<% end %>
+		</h4>
+	</td>
   <% end %>
 </tr>
