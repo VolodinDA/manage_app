@@ -7,5 +7,7 @@ class CreateCharacteristics < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+    add_index :characteristics, :user_id
+    add_index :characteristics, :ability_id
   end
 end

@@ -7,8 +7,18 @@ class User < ApplicationRecord
 	validates :password, length: { minimum: 6 }
 	has_secure_password
 
+	belongs_to :errand
+
+	belongs_to :assignment
+
 	has_many :speeches, foreign_key: "user_id"
 	has_many :languages, through: :speeches, source: :language
+
+	has_many :characteristics, foreign_key: "user_id"
+	has_many :abilities, through: :characteristics, source: :ability
+
+	has_many :merits, foreign_key: "user_id"
+	has_many :rewards, through: :merits, source: :reward
 
 	# Creating a remember_token to remember the user #
 	

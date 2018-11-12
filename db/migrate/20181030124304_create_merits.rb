@@ -6,5 +6,7 @@ class CreateMerits < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+    add_index :merits, :user_id
+    add_index :merits, :reward_id
   end
 end

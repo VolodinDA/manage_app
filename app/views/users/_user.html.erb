@@ -9,7 +9,7 @@
 		<h4>
 			<%= form_for user do |f|%>
 				<% Department.all.each do |department| %>
-					<%= check_box_tag : department_ids, department.id, user.departments.include?(department), name:=>'user[department_ids][]'%>
+					<%= check_box_tag :department_ids, department.id, user.departments.include?(department), name: 'user[department_ids][]'%>
 					<%= label_tag :department_ids, department.name %>
 				<% end %>
 				<%= f.submit "Assign stuff" %>

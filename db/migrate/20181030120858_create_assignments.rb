@@ -3,7 +3,6 @@ class CreateAssignments < ActiveRecord::Migration[5.2]
     create_table :assignments do |t|
       t.integer :user_id
       t.integer :department_id
-      t.integer :objective_id
 
       t.timestamps
     end

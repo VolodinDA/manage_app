@@ -2,6 +2,7 @@ class CreateDepartments < ActiveRecord::Migration[5.2]
   def change
     create_table :departments do |t|
       t.string :designation
+      t.integer :objective_id
 
       t.timestamps
     end
