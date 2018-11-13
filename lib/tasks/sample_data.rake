@@ -7,6 +7,7 @@ namespace :db do
     make_errands
 		make_rewards
     make_ability
+		make_departments
   end
 end
 
@@ -38,7 +39,7 @@ end
 
 def make_rewards
 	10.times do
-	  title=Faker::Military.unique.air_force_rank
+	  title=Faker::Military.air_force_rank
 		description=Faker::Lorem.sentence
 		Reward.create!(title: title,
 									 description: description)
@@ -47,7 +48,7 @@ end
 
 def make_ability
 	20.times do
-	  description=Faker::Hacker.unique.ingverb
+	  description=Faker::Hacker.ingverb
 		Ability.create!(description: description)
 	end
 end

@@ -23,6 +23,9 @@ ActiveRecord::Schema.define(version: 2018_11_04_135604) do
     t.integer "department_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["department_id"], name: "index_assignments_on_department_id"
+    t.index ["user_id", "department_id"], name: "index_assignments_on_user_id_and_department_id", unique: true
+    t.index ["user_id"], name: "index_assignments_on_user_id"
   end
 
   create_table "characteristics", force: :cascade do |t|
@@ -97,6 +100,8 @@ ActiveRecord::Schema.define(version: 2018_11_04_135604) do
     t.boolean "admin", default: false
     t.date "employment_date"
     t.string "avatar"
+    t.integer "assignment_id"
+    t.integer "errand_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

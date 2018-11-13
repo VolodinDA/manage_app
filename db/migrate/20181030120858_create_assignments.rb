@@ -6,5 +6,8 @@ class CreateAssignments < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+    add_index :assignments, :user_id
+    add_index :assignments, :department_id
+    add_index :assignments, [:user_id, :department_id],unique: true
   end
 end

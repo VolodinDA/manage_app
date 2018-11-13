@@ -23,7 +23,8 @@
                 </td>
               <% end %>
 
-              <% if admin?(current_user) && !current_user?(user) %>
+              <% @assignment=Assignment.find_by(user_id: user.id) %>
+              <% if admin?(current_user) && !current_user?(user) && @assignment.nil? %>
                 <td>
                   <%= check_box_tag "assignment[user_ids][]", user.id %>
                 </td>
