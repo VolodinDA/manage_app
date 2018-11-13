@@ -2,19 +2,50 @@
 <h1>Stuff list</h1>
 
 <%= will_paginate %>
-<hr>
-<div class="col-lg-8">
-  <table class="table table-striped">
-    <tbody>
-    <%= render @users %>
-    </tbody>
-  </table>
-</div>
-<div class="col-lg-4">
-  <table class="table table-striped">
-    <tbody>
-    </tbody>
-  </table>
-</div>
 
-<%= will_paginate %>
+<%= form_with model: Assignment do |f| %>
+  <div class="row">
+    <div class="col-lg-8">
+      <table class="table table-striped">
+        <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= min_avatar_for(user) %><td>
+            <td>
+              <h4><%= link_to user.name, user %></h4>
+            </td>
+
+            <% if admin?(current_user) && !current_user?(user) %>
+              <td>
+                <h4><%= link_to "delete", user, method: :delete, data: {confirm: "You sure?"} %></h4>
+              </td>
+            <% end %>
+
+            <% if admin?(current_user) && !current_user?(user) %>
+              <td>
+                <%= check_box_tag "assignment[user_ids][]", user.id %>
+              </td>
+            <% end %>
+        <% end %>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-lg-4">
+      <table class="table table-striped">
+        <tbody>
+        <% @departments.each do |dep| %>
+          <tr>
+            <td><%= dep.designation %></td>
+            <td>
+              <%= radio_button_tag "assignment[department_id][]", dep.id  %>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <%= f.submit "Assign stuff", class: "btn btn-lg btn-primary" %>
+<% end %>
