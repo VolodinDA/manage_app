@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_04_135604) do
+ActiveRecord::Schema.define(version: 2018_11_14_121828) do
 
   create_table "abilities", force: :cascade do |t|
     t.string "description"
@@ -100,10 +100,9 @@ ActiveRecord::Schema.define(version: 2018_11_04_135604) do
     t.boolean "admin", default: false
     t.date "employment_date"
     t.string "avatar"
-    t.integer "assignment_id"
-    t.integer "errand_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "assignment_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end
