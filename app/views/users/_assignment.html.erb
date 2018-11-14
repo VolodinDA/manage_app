@@ -1,0 +1,7 @@
+<h3>
+	<% if !@user.assignment.nil?%>
+		<%= Department.find(@user.assignment.department_id).designation %>
+	<% else %>
+		Not assigned
+	<% end %>
+</h3>
