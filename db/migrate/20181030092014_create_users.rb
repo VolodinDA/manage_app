@@ -7,6 +7,8 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :remember_token
       t.boolean :admin, default: false
       t.date :employment_date
+      t.integer :department_id
+      t.integer :errand_id
 	    t.string :avatar
 
       t.timestamps

@@ -1,6 +1,6 @@
 <h3>
-	<% if !@user.assignment.nil?%>
-		<%= Department.find(@user.assignment.department_id).designation %>
+	<% if !@user.department.nil?%>
+		<%= @user.department.designation %>
 	<% else %>
 		Not assigned
 	<% end %>

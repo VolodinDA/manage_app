@@ -3,7 +3,7 @@
 
 <%= will_paginate %>
 
-<%= form_with model: Assignment do |f| %>
+<%= form_with model: Department do |f| %>
 
   <div class="row">
     <div class="col-lg-8">
@@ -23,9 +23,9 @@
                 </td>
               <% end %>
 
-              <% if admin?(current_user) && !current_user?(user) && user.assignment.nil? %>
+              <% if admin?(current_user) && !current_user?(user) && user.department.nil? %>
                 <td>
-                  <%= check_box_tag "assignment[user_ids][]", user.id %>
+                  <%= check_box_tag "department[user_ids][]", user.id %>
                 </td>
               <% end %>
           <% end %>
@@ -43,7 +43,7 @@
             <tr>
               <td><%= dep.designation %></td>
               <td>
-                <%= radio_button_tag "assignment[department_id][]", dep.id  %>
+                <%= radio_button_tag "department[department_id][]", dep.id  %>
               </td>
             </tr>
           <% end %>

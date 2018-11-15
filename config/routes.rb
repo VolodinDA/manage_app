@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :merits, only: [:create, :destroy]
   resources :rewards, only: [:create, :destroy]
   resources :objectives, only: [:create, :destroy]
-  resources :departments, only: [ :show, :create, :destroy]
+  resources :departments
   resources :assignments, only: [:create, :destroy]
   resources :errands, only: [:create, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

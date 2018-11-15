@@ -10,22 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_14_121828) do
+ActiveRecord::Schema.define(version: 2018_11_04_135604) do
 
   create_table "abilities", force: :cascade do |t|
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "assignments", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "department_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["department_id"], name: "index_assignments_on_department_id"
-    t.index ["user_id", "department_id"], name: "index_assignments_on_user_id_and_department_id", unique: true
-    t.index ["user_id"], name: "index_assignments_on_user_id"
   end
 
   create_table "characteristics", force: :cascade do |t|
@@ -48,7 +38,6 @@ ActiveRecord::Schema.define(version: 2018_11_14_121828) do
   create_table "errands", force: :cascade do |t|
     t.string "address"
     t.boolean "is_finished", default: false
-    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["address"], name: "index_errands_on_address"
@@ -74,6 +63,7 @@ ActiveRecord::Schema.define(version: 2018_11_14_121828) do
     t.integer "departmnent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["departmnent_id"], name: "index_objectives_on_departmnent_id"
   end
 
   create_table "rewards", force: :cascade do |t|
@@ -99,10 +89,11 @@ ActiveRecord::Schema.define(version: 2018_11_14_121828) do
     t.string "remember_token"
     t.boolean "admin", default: false
     t.date "employment_date"
+    t.integer "department_id"
+    t.integer "errand_id"
     t.string "avatar"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "assignment_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end
