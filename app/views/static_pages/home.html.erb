@@ -1,3 +1,4 @@
+<% if !signed_in?%>
 <div class="jumbotron">
 	<div class="container">
 		<h1>Welcome to the N Enterprise!</h1>
@@ -5,3 +6,17 @@
 		<p><a><%= link_to "Sign up now!", signup_path, class: "btn btn-primary btn-lg" %></a></p>
 	</div>
 </div>
+<% else %>
+	<div class="row">
+		<div class="col-lg-6">
+			<div class="panel panel-success">
+				<div class="panel-heading">
+					<h3><%=Department.count %> Departments</h3>
+				</div>
+				<div class="panel-body">
+					<%= render @departments %>
+				</div>
+			</div>
+		</div>	
+	</div>
+<% end %>
