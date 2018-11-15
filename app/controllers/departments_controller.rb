@@ -1,5 +1,5 @@
 class DepartmentsController < ApplicationController
-  def create
+  def update
     @users_ids=params[:department][:user_ids]
     @department_id=Department.find_by(id: params[:department][:department_id]).id
     @users_ids.each do |user_id|

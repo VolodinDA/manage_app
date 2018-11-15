@@ -3,7 +3,7 @@
 
 <%= will_paginate %>
 
-<%= form_with model: Department do |f| %>
+<%= form_with(model: Department, url: assign_path, method: :put)  do |f| %>
 
   <div class="row">
     <div class="col-lg-8">
@@ -50,7 +50,7 @@
           </tbody>
         </table>
       </div>
-      <%= f.submit "Assign stuff", class: "btn btn-lg btn-primary" %>
+      <%= f.submit"Assign stuff", class: "btn btn-lg btn-primary"%>
     </div>
   </div>
 

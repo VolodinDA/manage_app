@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   root 'static_pages#home'
   match '/signup', to: 'users#new', via: 'get'
-  match '/signout', to: 'sessions#destroy', via: 'delete'  
+  match '/signout', to: 'sessions#destroy', via: 'delete'
+  match '/assign', to:'departments#update', via: 'put'
   resources :users
   resources :sessions, only: [:create, :destroy]
   resources :languages, only: [:create, :destroy]
