@@ -32,7 +32,7 @@ end
 
 def make_departments
 	10.times do
-	  designation=Faker::Job.field
+	  designation=Faker::Job.unique.field
 		Department.create!(designation: designation)
 	end
 end
@@ -47,7 +47,7 @@ def make_rewards
 end
 
 def make_ability
-	20.times do
+	10.times do
 	  description=Faker::Hacker.ingverb
 		Ability.create!(description: description)
 	end

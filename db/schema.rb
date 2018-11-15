@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 2018_11_14_121828) do
 
   create_table "departments", force: :cascade do |t|
     t.string "designation"
-    t.integer "objective_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["designation"], name: "index_departments_on_designation"
@@ -72,6 +71,7 @@ ActiveRecord::Schema.define(version: 2018_11_14_121828) do
 
   create_table "objectives", force: :cascade do |t|
     t.string "description"
+    t.integer "departmnent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
