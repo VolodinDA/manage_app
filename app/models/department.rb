@@ -1,5 +1,5 @@
 class Department < ApplicationRecord
-  has_many :objectives
+  has_many :objectives, dependent: :destroy
   has_many :users
   default_scope->{ order('designation DESC') }
 

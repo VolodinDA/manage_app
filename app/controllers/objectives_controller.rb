@@ -8,7 +8,9 @@ class ObjectivesController < ApplicationController
       flash[:success] = "Objective assigned"
       redirect_to root_path
     else
-      render 'static_pages/home'
+      @objectives=@department.objectives
+      @users=@department.users
+      render 'departments/show'
     end
   end
 
