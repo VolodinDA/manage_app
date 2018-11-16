@@ -20,5 +20,6 @@ class DepartmentsController < ApplicationController
     @department_id=@department.id
     @objectives=@department.objectives
     @objective=@department.objectives.build if signed_in?
+    @users=@department.users
   end
 end

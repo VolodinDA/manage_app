@@ -1,6 +1,6 @@
 <h3>
 	<% if !@user.department.nil?%>
-		<%= @user.department.designation %>
+		<%= link_to @user.department.designation, @user.department %>
 	<% else %>
 		Not assigned
 	<% end %>
