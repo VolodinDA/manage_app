@@ -11,7 +11,7 @@
 <% else %>
 
 	<div class="row">
-		<div class="col-lg-6">
+		<div class="col-lg-4">
 			<div class="panel panel-success">
 				<div class="panel-heading">
 					<h3><%=Department.count %> Departments</h3>
@@ -19,8 +19,20 @@
 				<div class="panel-body">
 					<%= render @departments %>
 				</div>
+        <%= render 'shared/new_department_form' %>
 			</div>
-		</div>	
-	</div>
+		</div>
+
+    <div class="col-lg-4">
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3><%=Language.count %> Languages</h3>
+        </div>
+        <div class="panel-body">
+          <%= render @languages %>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <% end %>

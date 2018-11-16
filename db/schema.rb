@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2018_11_04_135604) do
     t.string "designation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["designation"], name: "index_departments_on_designation"
+    t.index ["designation"], name: "index_departments_on_designation", unique: true
   end
 
   create_table "errands", force: :cascade do |t|

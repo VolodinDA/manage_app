@@ -1,0 +1,16 @@
+<%= form_with model: Department do |f| %>
+  <div class="panel panel-success">
+    <div class="panel panel-heading">
+      <%= f.label "Department_form"%>
+    </div>
+    <div class="panel panel-body">
+      <div class="myform">
+      <%= f.text_field :designation, placeholder: "New department"%>
+        <%= f.fields_for :objectives do |of| %>
+          <%=of.text_field :description, placeholder: "New objective" %>
+        <% end %>
+      <%= f.submit "Create department", class: "btn btn-lg btn-success" %>
+      </div>
+    </div>
+  </div>
+<% end %>
