@@ -8,6 +8,7 @@ namespace :db do
 		make_rewards
     make_ability
 		make_departments
+    make_objectives
   end
 end
 
@@ -20,13 +21,6 @@ def make_errands
 	10.times do
 	  addres=Faker::Address.full_address
 		Errand.create!(address: addres)
-	end
-end
-
-def make_objectieves
-	20.times do
-		description=Faker::Lorem.sentence
-		Objective.create!(description: description)
 	end
 end
 
@@ -58,6 +52,15 @@ def make_charact
 	grade=grades[rand(grades.size)]
 	Characteristic.create!(grade: grade)
 end
+
+def make_objectives
+	departments=Department.all.limit(6)
+	5.times do
+		description=Faker::Lorem.sentence(5)
+		departments.each { |department| department.objectives.create!(description: description) }
+	end
+end
+
 
 def make_users
 	admin=User.create!(name: "Example User",

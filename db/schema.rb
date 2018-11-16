@@ -60,10 +60,10 @@ ActiveRecord::Schema.define(version: 2018_11_04_135604) do
 
   create_table "objectives", force: :cascade do |t|
     t.string "description"
-    t.integer "departmnent_id"
+    t.integer "department_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["departmnent_id"], name: "index_objectives_on_departmnent_id"
+    t.index ["department_id"], name: "index_objectives_on_department_id"
   end
 
   create_table "rewards", force: :cascade do |t|

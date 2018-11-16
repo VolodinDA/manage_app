@@ -2,10 +2,10 @@ class CreateObjectives < ActiveRecord::Migration[5.2]
   def change
     create_table :objectives do |t|
       t.string :description
-      t.integer :departmnent_id
+      t.integer :department_id
 
       t.timestamps
     end
-    add_index :objectives, :departmnent_id
+    add_index :objectives, :department_id
   end
 end

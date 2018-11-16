@@ -1,4 +1,6 @@
 class DepartmentsController < ApplicationController
+  before_action :signed_in_user
+
   def update
     @users_ids=params[:department][:user_ids]
     @department_id=Department.find_by(id: params[:department][:department_id]).id
@@ -15,5 +17,8 @@ class DepartmentsController < ApplicationController
   
   def show
     @department=Department.find(params[:id])
+    @department_id=@department.id
+    @objectives=@department.objectives
+    @objective=@department.objectives.build if signed_in?
   end
 end

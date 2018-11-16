@@ -1,0 +1,8 @@
+<%= form_for(@objective) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div><%= f.hidden_field :department_id %></div>
+  <div class="field">
+    <%= f.text_area :description, placeholder: "Create a desctription of the objective ..." %>
+  </div>
+  <%= f.submit "Assign", class: "btn btn-large btn-primary" %>
+<% end %>
