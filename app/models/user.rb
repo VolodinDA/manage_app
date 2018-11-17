@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
 	#belongs_to :errand, foreign_key: "errand_id"
 
-	belongs_to :department, foreign_key: "department_id"
+	#belongs_to :department, foreign_key: "department_id"
 
 	has_many :speeches, foreign_key: "user_id"
 	has_many :languages, through: :speeches, source: :language
