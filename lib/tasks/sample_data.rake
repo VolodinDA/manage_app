@@ -68,8 +68,7 @@ def make_users
 								password: "foobar",
 								password_confirmation: "foobar",
 								admin: true,
-								employment_date: "2018-11-01",
-								department_id: nil)
+								employment_date: "2018-11-01")
 	50.times do |n|
 		name=Faker::Name.name
 		email="example-#{n+1}@exam.org"
@@ -81,8 +80,7 @@ def make_users
 							 	password: password,
 							 	password_confirmation: password,
 								avatar: avatar,
-								employment_date: employment_date,
-								department_id: nil)
+								employment_date: employment_date)
 	end
 end
 

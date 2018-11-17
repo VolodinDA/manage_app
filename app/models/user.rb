@@ -7,9 +7,9 @@ class User < ApplicationRecord
 	validates :password, length: { minimum: 6 }
 	has_secure_password
 
-	#belongs_to :errand, foreign_key: "errand_id"
+	belongs_to :errand, foreign_key: "errand_id", optional: true
 
-	belongs_to :department, foreign_key: "department_id"
+	belongs_to :department, foreign_key: "department_id", optional: true
 
 	has_many :speeches, foreign_key: "user_id"
 	has_many :languages, through: :speeches, source: :language
