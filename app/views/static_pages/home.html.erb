@@ -11,6 +11,7 @@
 <% else %>
 
 	<div class="row">
+
 		<div class="col-lg-4">
 			<div class="panel panel-success">
 				<div class="panel-heading">
@@ -19,20 +20,63 @@
 				<div class="panel-body">
 					<%= render @departments %>
 				</div>
-        <%= render 'shared/new_department_form' %>
+        <% if admin?(current_user) %>
+          <%= render 'shared/new_department_form' %>
+        <% end %>
 			</div>
 		</div>
 
     <div class="col-lg-4">
       <div class="panel panel-success">
         <div class="panel-heading">
+          <h3>Rewards</h3>
+        </div>
+        <div class="panel-body">
+          <%= render @rewards %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4">
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3>Errands</h3>
+        </div>
+        <div class="panel-body">
+          Errand
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-lg-5">
+      <div class="panel panel-warning">
+        <div class="panel-heading">
           <h3><%=Language.count %> Languages</h3>
         </div>
         <div class="panel-body">
           <%= render @languages %>
         </div>
+        <% if admin?(current_user) %>
+          <%= render 'shared/new_language' %>
+        <% end %>
       </div>
     </div>
+
+    <div class="col-lg-7">
+      <div class="panel panel-warning">
+        <div class="panel-heading">
+          <h3>Characteristics</h3>
+        </div>
+        <div class="panel-body">
+          Characteristic
+        </div>
+      </div>
+    </div>
+
   </div>
 
 <% end %>

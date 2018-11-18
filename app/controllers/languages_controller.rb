@@ -1,6 +1,12 @@
 class LanguagesController < ApplicationController
+  before_action :signed_in_user
+
   def create
-    @language=languages.build(language_params)
+    @language=Language.new(language_params)
+    if @language.save
+      flash[:success]="Language added"
+    end
+    redirect_to root_path
   end
 
   def destroy

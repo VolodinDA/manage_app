@@ -1,0 +1,14 @@
+<%= form_with model: Language do |f| %>
+
+  <div class="panel panel-warning">
+    <div class="panel panel-heading">
+      <%= f.label "Add new language"%>
+    </div>
+    <div class="panel panel-body">
+      <div class="myform">
+        <%= f.text_field :name, placeholder: "New language's name" %>
+        <%= f.submit "Add language", class: "btn btn-lg btn-warning" %>
+      </div>
+    </div>
+  </div>
+<% end %>
