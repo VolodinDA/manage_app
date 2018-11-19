@@ -1,0 +1,19 @@
+<%= form_with model: Reward do |f| %>
+	<div class="panel panel-success">
+		<div class="panel panel-heading">
+			<%= f.label "Reward_form" %>
+		</div>
+		<div class="panel panel-body">
+			<div class="myform">
+			
+				<%= f.label "Reward's title" %>
+				<%= f.text_field :title, placeholder: "New reward" %>
+				
+				<%= f.label "Reward's description" %>
+				<%= f.text_field :description, placeholder: "Description" %>
+			
+				<%= f.submit "Add new reward", class: "btn btn-lg btn-success" %>
+			</div>
+		</div>
+	</div>
+<% end %>

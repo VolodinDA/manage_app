@@ -6,5 +6,6 @@ class CreateRewards < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+	add_index  :rewards, :title, unique: true
   end
 end

@@ -5,11 +5,16 @@
     </div>
     <div class="panel panel-body">
       <div class="myform">
-      <%= f.text_field :designation, placeholder: "New department"%>
+	  
+		<%= f.label "Department's designation"%>
+		<%= f.text_field :designation, placeholder: "New department"%>
+	  
         <%= f.fields_for :objectives do |of| %>
+			<%= of.label "Objective"%>
           <%=of.text_field :description, placeholder: "New objective" %>
         <% end %>
-      <%= f.submit "Create department", class: "btn btn-lg btn-success" %>
+		
+		<%= f.submit "Create department", class: "btn btn-lg btn-success" %>
       </div>
     </div>
   </div>
