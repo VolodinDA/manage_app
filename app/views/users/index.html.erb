@@ -34,7 +34,8 @@
         </table>
       </div>
     </div>
-
+	
+	<% if admin?(current_user) %>
     <div class="col-lg-4">
       <div class="panel panel-info">
         <table class="table table-striped">
@@ -53,5 +54,8 @@
       <%= f.submit"Assign stuff", class: "btn btn-lg btn-primary"%>
     </div>
   </div>
+  <% end %>
 
+  <%= will_paginate %>
+  
 <% end %>
