@@ -19,7 +19,7 @@ end
 
 def make_errands
 	10.times do
-	  addres=Faker::Address.full_address
+	  addres=Faker::Address.unique.full_address
 		Errand.create!(address: addres)
 	end
 end
@@ -32,8 +32,8 @@ def make_departments
 end
 
 def make_rewards
-	10.times do
-	  title=Faker::Military.air_force_rank
+	5.times do
+	  title=Faker::Military.unique.air_force_rank
 		description=Faker::Lorem.sentence
 		Reward.create!(title: title,
 									 description: description)
@@ -42,7 +42,7 @@ end
 
 def make_ability
 	10.times do
-	  description=Faker::Hacker.ingverb
+	  description=Faker::Hacker.unique.ingverb
 		Ability.create!(description: description)
 	end
 end
@@ -70,7 +70,7 @@ def make_users
 								admin: true,
 								employment_date: "2018-11-01")
 	50.times do |n|
-		name=Faker::Name.name
+		name=Faker::Name.unique.name
 		email="example-#{n+1}@exam.org"
 		password="password"
 		avatar=random_avatars
@@ -86,7 +86,7 @@ end
 
 def make_languages
 	5.times do
-	  name=Faker::ElderScrolls.race
+	  name=Faker::ElderScrolls.unique.race
 		Language.create!(name: name)
 	end
 end

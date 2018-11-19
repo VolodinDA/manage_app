@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2018_11_04_135604) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["description"], name: "index_abilities_on_description", unique: true
   end
 
   create_table "characteristics", force: :cascade do |t|
@@ -40,13 +41,14 @@ ActiveRecord::Schema.define(version: 2018_11_04_135604) do
     t.boolean "is_finished", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["address"], name: "index_errands_on_address"
+    t.index ["address"], name: "index_errands_on_address", unique: true
   end
 
   create_table "languages", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_languages_on_name", unique: true
   end
 
   create_table "merits", force: :cascade do |t|
@@ -71,6 +73,7 @@ ActiveRecord::Schema.define(version: 2018_11_04_135604) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["title"], name: "index_rewards_on_title", unique: true
   end
 
   create_table "speeches", force: :cascade do |t|
