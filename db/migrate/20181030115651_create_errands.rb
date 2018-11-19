@@ -6,6 +6,6 @@ class CreateErrands < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
-	add_index :errands, :address
+	add_index :errands, :address, unique: true
   end
 end
