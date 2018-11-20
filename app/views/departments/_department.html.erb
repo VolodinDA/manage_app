@@ -1,10 +1,12 @@
 <li>
   <p>
+    <h4>
 	<% if admin?(current_user) %>
 		<%= link_to department.designation, department%>
 	<% else %>
       <%= department.designation %>
     <% end %>
     - <%= department.users.count %> workers
+    </h4>
   </p>
 </li>

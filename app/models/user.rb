@@ -41,11 +41,7 @@ class User < ApplicationRecord
 	def lang_feed
 		self.languages.map(&:name)
 	end
-	
-	def reward_feed
-		name
-	end
-	
+
 	private
 	
 	def create_remember_token

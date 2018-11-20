@@ -57,7 +57,7 @@
 							<div class="panel-heading"><h3>Errands</h3></div>
 							<div class="panel-body">
                 <% if !@user.errand.nil? %>
-                  <%= link_to @user.errand.address, @user.errand %>
+                  <h3><%= link_to @user.errand.address, @user.errand %></h3>
                 <% else %>
                   <%= render 'errand' %>
                 <% end %>

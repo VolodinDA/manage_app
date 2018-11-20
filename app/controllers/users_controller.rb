@@ -26,7 +26,6 @@ class UsersController < ApplicationController
 		@users=User.paginate(page: params[:page])
 		@speech=@user.speeches.build
 		@merit=@user.merits.build
-		@reward_items=@user.reward_feed
 		@language_items=@user.lang_feed
 	end
 	
