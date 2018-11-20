@@ -4,6 +4,7 @@ class StaticPagesController < ApplicationController
 	  @departments=Department.all
     @languages=Language.all
     @rewards=Reward.all
+    @errands=Errand.all
   end
 
 end

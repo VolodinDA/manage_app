@@ -1,6 +1,7 @@
 <% provide(:title, current_user.name )%>
 <div class=""><h1><%= @user.name %></h1></div>
 <div class="row">
+
 	<div class="col-lg-3">
 		<div class="panel panel-primary">	
 			<div class="panel-heading"><h2>Users list</h2></div>
@@ -12,6 +13,7 @@
 			</div>
 		</div>
 	</div>
+
 	<div class="col-lg-4">
 		<div class="panel panel-default">	
 			<div class="panel-heading"><h2>Main information</h2></div>
@@ -32,11 +34,15 @@
 			</div>
 		</div>
 	</div>
+
 	<div class="col-lg-5">
+
 		<div class="panel panel-default">	
 			<div class="panel-heading"><h2>Personal information</h2></div>
 			<div class="panel-body">
+
 				<div class="row">
+
 					<div class="col-lg-6">
 						<div class="panel panel-default">
 							<div class="panel-heading"><h3>Assignments</h3></div>
@@ -45,29 +51,37 @@
 							</div>
 						</div>
 					</div>
+
 					<div class="col-lg-6">
 						<div class="panel panel-default">
 							<div class="panel-heading"><h3>Errands</h3></div>
 							<div class="panel-body">
+                <%= render 'errand' %>
 							</div>
 						</div>
 					</div>
+
 				</div>
+
 				<hr>
+
 				<h2>Characteristics:</h2>
 				<ul class="list-group">
 					<li class="list-group-item">Character Item</li>
 				</ul>
+
 				<hr>
+
 				<h2>Languages:</h2>
 				<ul class="list-group">
-					<!--<li class="list-group-item">Language Item</li>-->
           <%= render  'language' %>
           <% if current_user?(@user) %>
             <%= render 'new_lang_form' if signed_in? %>
           <% end %>
 				</ul>
+
 			</div>
 		</div>
 	</div>
+
 </div>

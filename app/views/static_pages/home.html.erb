@@ -10,6 +10,7 @@
 
 <% else %>
 
+  <h1>General information board</h1>
 	<div class="row">
 
 		<div class="col-lg-4">
@@ -46,8 +47,11 @@
           <h3>Errands</h3>
         </div>
         <div class="panel-body">
-          Errand
+          <ul><%= render @errands %></ul>
         </div>
+        <% if admin?(current_user) %>
+          <%= render 'shared/new_errand' %>
+        <% end %>
       </div>
     </div>
 
