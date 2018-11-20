@@ -19,7 +19,7 @@ end
 
 def make_errands
 	10.times do
-	  addres=Faker::Address.unique.full_address
+	  addres=Faker::Address.unique.city
 		Errand.create!(address: addres)
 	end
 end

@@ -1,4 +1,11 @@
 class ErrandsController < ApplicationController
+  before_action :signed_in_user
+
+  def show
+    @errand=Errand.find(params[:id])
+    @users=@errand.users
+  end
+
   def create
     @errand=Errand.new(errand_params)
     if @errand.save

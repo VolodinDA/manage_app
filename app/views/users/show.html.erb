@@ -56,7 +56,11 @@
 						<div class="panel panel-default">
 							<div class="panel-heading"><h3>Errands</h3></div>
 							<div class="panel-body">
-                <%= render 'errand' %>
+                <% if !@user.errand.nil? %>
+                  <%= link_to @user.errand.address, @user.errand %>
+                <% else %>
+                  <%= render 'errand' %>
+                <% end %>
 							</div>
 						</div>
 					</div>

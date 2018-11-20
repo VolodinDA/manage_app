@@ -49,6 +49,14 @@ class UsersController < ApplicationController
 		flash[:success]="User deleted."
 		redirect_to users_url
 	end
+
+	def to_errand
+		@user=User.find(params[:user][:id])
+		@errand_id=Errand.find(params[:errands][:id]).id
+		@user.update_attribute(:errand_id, @errand_id)
+		flash[:success]="Errand assigned"
+		redirect_to @user
+	end
 	
 	private
 	
