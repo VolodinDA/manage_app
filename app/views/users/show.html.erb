@@ -24,7 +24,7 @@
 					<h2>Rewards:</h2>
 					<ul class="list-group">
 						<%= render 'reward' %>
-            <% if admin?(current_user) %>
+            <% if admin?(current_user) && !current_user?(@user) %>
               <%= render 'new_reward' if signed_in? %>
             <% end %>
 					</ul>

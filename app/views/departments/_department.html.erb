@@ -3,8 +3,8 @@
 	<% if admin?(current_user) %>
 		<%= link_to department.designation, department%>
 	<% else %>
-		<%= department.designation %>
-		- <%= department.users.count %> workers
+      <%= department.designation %>
     <% end %>
+    - <%= department.users.count %> workers
   </p>
 </li>

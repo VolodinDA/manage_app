@@ -4,7 +4,8 @@ class MeritsController < ApplicationController
     @reward=Reward.find(params[:rewards][:id])
     @user=User.find(params[:merit][:user_id])
     @user.merits.create!(reward_id: @reward.id)
-    redirect_to current_user
+    flash[:success]="Reward assigned"
+    redirect_to @user
   end
 
   def destroy

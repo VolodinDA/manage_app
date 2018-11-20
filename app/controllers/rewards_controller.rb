@@ -6,7 +6,7 @@ class RewardsController < ApplicationController
 	if @reward.save
 		flash[:success]="Reward created"
 	end
-	redirect_to root_path
+	redirect_to root_url
   end
 
   def destroy
