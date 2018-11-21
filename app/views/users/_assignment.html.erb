@@ -2,6 +2,10 @@
 	<% if !@user.department.nil?%>
 		<%= link_to @user.department.designation, @user.department %>
 	<% else %>
-		Not assigned
+    <% if admin?(@user)%>
+      You are already Boss
+    <% else %>
+      Not assigned
+    <% end %>
 	<% end %>
 </h3>

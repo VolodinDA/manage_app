@@ -1,12 +1,23 @@
 <li>
-  <p>
-    <h4>
-	<% if admin?(current_user) %>
-		<%= link_to department.designation, department%>
-	<% else %>
-      <%= department.designation %>
+  <h4>
+    <p>
+      <% if admin?(current_user) %>
+        <%= link_to department.designation, department%>
+      <% else %>
+        <%= department.designation %>
+      <% end %>
+      - <%= department.users.count %> workers
+    </p>
+
+    <% if department.objectives.blank? %>
+      <span class="label label-danger">
+        (Department has no objectives)
+      </span>
+     <% else %>
+      <span class="label label-info">
+        (Department has <%= department.objectives.count %> objectives)
+      </span>
     <% end %>
-    - <%= department.users.count %> workers
-    </h4>
-  </p>
+
+  </h4>
 </li>

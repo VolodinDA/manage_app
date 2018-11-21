@@ -1,8 +1,8 @@
 <% @language_items.each do |item| %>
   <li class="list-group-item">
-    <%= item %>
-    <% if current_user?(@user) %>
-      <%= form_for(@user.speeches.find_by(language_id: Language.find_by(name: item).id), html: { method: :delete}) do |f|%>
+    <%= form_for(@user.speeches.find_by(language_id: Language.find_by(name: item).id), html: { method: :delete}) do |f|%>
+      <%= item %>
+      <% if current_user?(@user) %>
         <%= f.submit "Forget", class: "btn" %>
       <% end %>
     <% end %>
