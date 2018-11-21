@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2018_11_04_135604) do
   create_table "characteristics", force: :cascade do |t|
     t.integer "user_id"
     t.integer "ability_id"
-    t.integer "grade"
+    t.string "grade"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["ability_id"], name: "index_characteristics_on_ability_id"

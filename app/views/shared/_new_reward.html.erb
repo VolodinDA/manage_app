@@ -1,5 +1,5 @@
 <%= form_with model: Reward do |f| %>
-	<div class="panel panel-success">
+	<div class="panel panel-warning">
 		<div class="panel panel-heading">
 			<%= f.label "Reward_form" %>
 		</div>
@@ -12,7 +12,7 @@
 				<%= f.label "Reward's description" %>
 				<%= f.text_field :description, placeholder: "Description" %>
 			
-				<%= f.submit "Add new reward", class: "btn btn-lg btn-success" %>
+				<%= f.submit "Add new reward", class: "btn btn-lg btn-warning" %>
 			</div>
 		</div>
 	</div>

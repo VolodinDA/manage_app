@@ -1,6 +1,6 @@
 <%= form_with model: Errand do |f| %>
 
-  <div class="panel panel-success">
+  <div class="panel panel-warning">
     <div class="panel panel-heading">
       <%= f.label "Errand form" %>
     </div>
@@ -10,7 +10,7 @@
         <%= f.label "Errand's address" %>
         <%= f.text_field :address, placeholder: "New address" %>
 
-        <%= f.submit "Create an errand", class: "btn btn-lg btn-success" %>
+        <%= f.submit "Create an errand", class: "btn btn-lg btn-warning" %>
 
       </div>
     </div>
