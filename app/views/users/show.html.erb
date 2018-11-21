@@ -71,7 +71,10 @@
 
 				<h2>Characteristics:</h2>
 				<ul class="list-group">
-					<li class="list-group-item">Character Item</li>
+					<%= render 'character'%>
+					<% if admin?(current_user) && !current_user?(@user) %>
+						<%= render 'new_char'%>
+					<% end %>
 				</ul>
 
 				<hr>

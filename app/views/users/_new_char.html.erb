@@ -1,0 +1,11 @@
+<%= form_for(@characteristic) do |f| %>
+	<li class="list-group-item">
+		<div><%= f.hidden_field :user_id %></div>
+		<div class="field">
+			<%= f.label "Select ability" %>
+			<%= collection_select(:abilities, :id, Ability.all, :id, :description) %>
+			<%= select(:characteristic , :grade, Characteristic::Grades )%>
+			<%= f.submit "Add grade", class: "btn btn-primary" %>
+		</div>
+	</li>
+<% end %>

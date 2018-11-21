@@ -1,0 +1,8 @@
+<% @user.abilities.each do |f| %>
+	<li class="list-group-item">
+		<h4>	
+			<%= f.description %>
+			- <%= @user.characteristics.find_by(ability_id: f.id).grade %>
+		</h4>
+	</li>
+<% end %> 

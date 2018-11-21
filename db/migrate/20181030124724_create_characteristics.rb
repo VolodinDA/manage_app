@@ -3,7 +3,7 @@ class CreateCharacteristics < ActiveRecord::Migration[5.2]
     create_table :characteristics do |t|
       t.integer :user_id
       t.integer :ability_id
-      t.integer :grade
+      t.string :grade
 
       t.timestamps
     end
