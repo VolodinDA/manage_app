@@ -1,0 +1,18 @@
+<div class="panel panel-heading">
+  <h4> Current status -
+    <% if @errand.is_finished==false %>
+      In progress
+    <% else %>
+      Done
+    <% end %>
+  </h4>
+</div>
+
+<% if admin?(current_user) && @errand.is_finished==false  %>
+  <div class="panel panel-body">
+    <%= form_for(@errand, html: {method: :patch}) do |f| %>
+      <%= f.label "Finishe errand?" %>
+      <%= f.submit "Yes", class: "btn btn-lg btn-info" %>
+    <% end %>
+  <% end %>
+</div>

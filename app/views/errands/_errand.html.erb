@@ -1,8 +1,20 @@
 <li>
-  <ul>
-    <h4><%= link_to errand.address, errand %>
-    - <%= errand.users.count %> - workers sent
-    </h4>
-  </ul>
-  <ul>(Errand complete? - <%=errand.is_finished %>)</ul>
+  <h4>
+    <ul>
+      <%= link_to errand.address, errand %>
+      - <%= errand.users.count %> - workers sent
+    </ul>
+
+    <ul>
+      <% if errand.is_finished==false %>
+        <span class="label label-info">
+          (Errand not finished yet)
+        </span>
+      <% else %>
+        <span class="label label-success">
+          (Errand complete)
+        </span>
+      <% end %>
+    </ul>
+  </h4>
 </li>

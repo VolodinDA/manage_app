@@ -14,6 +14,13 @@ class ErrandsController < ApplicationController
     redirect_to root_url
   end
 
+  def update
+    @errand=Errand.find(params[:id])
+    @errand.update_attribute(:is_finished, true)
+    flash[:success]="Errand complete"
+    redirect_to errand_path(@errand)
+  end
+
   def destroy
   end
 
