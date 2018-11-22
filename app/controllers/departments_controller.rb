@@ -18,7 +18,7 @@ class DepartmentsController < ApplicationController
       @user.update_attribute(:department_id, @department_id)
     end
     flash[:success]="Stuff assigned"
-    redirect_to root_url
+    redirect_to users_path
   end
 
   def destroy

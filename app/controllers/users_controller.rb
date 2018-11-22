@@ -29,6 +29,10 @@ class UsersController < ApplicationController
 		@characteristic=@user.characteristics.build
 		@language_items=@user.lang_feed
 	end
+
+	def edit
+
+	end
 	
 	def update
 		if @user.update_attributes(user_params)
