@@ -11,5 +11,10 @@ class CharacteristicsController < ApplicationController
   end
 
   def destroy
+	@ability=Characteristic.find(params[:id]).ability_id
+	@user=User.find(params[:characteristic][:user_id])
+	@user.characteristics.find_by(ability_id: @ability).destroy!
+	flash[:warning]="Ability deleted"
+	redirect_to @user
   end
 end

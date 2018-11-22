@@ -1,8 +1,14 @@
-<% @user.abilities.each do |f| %>
+<% @user.abilities.each do |ability| %>
 	<li class="list-group-item">
-		<h4>	
-			<%= f.description %>
-			- <%= @user.characteristics.find_by(ability_id: f.id).grade %>
+		<h4>
+			<%= form_for(@user.characteristics.find_by(ability_id: ability.id), html: { method: :delete }) do |f| %> 
+				<%= f.hidden_field :user_id %>
+				<%= ability.description %>
+				- <%= @user.characteristics.find_by(ability_id: ability.id).grade %>
+				<% if admin?(current_user) %>
+					<%= f.submit "Lose the ability", class: "btn" %>
+				<% end %>
+			<% end %>
 		</h4>
 	</li>
 <% end %> 
