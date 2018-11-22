@@ -5,5 +5,10 @@
 			- <%= reward.users.count %> awarded	
 		</h4>
 		(<%= reward.description %>)
+
+  <% if admin?(current_user) %>
+    | <%= link_to "delete", reward, method: :delete, data: { confirm: "Delete reward?" }, title: reward.title %>
+  <% end %>
+
 	</p>
 </li>

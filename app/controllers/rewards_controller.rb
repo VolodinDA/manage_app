@@ -10,6 +10,11 @@ class RewardsController < ApplicationController
   end
 
   def destroy
+    @reward=Reward.find(params[:id])
+    @title=@reward.title
+    @reward.destroy!
+    flash[:warning]="#{@title} reward deleted"
+    redirect_to root_path
   end
   
   private

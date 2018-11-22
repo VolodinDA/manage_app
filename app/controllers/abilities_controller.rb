@@ -10,6 +10,11 @@ class AbilitiesController < ApplicationController
   end
 
   def destroy
+    @ability=Ability.find(params[:id])
+    @description=@ability.description
+    @ability.destroy!
+    flash[:warning]="#{@description} ability deleted"
+    redirect_to root_path
   end
 
   private

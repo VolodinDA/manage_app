@@ -3,6 +3,11 @@
     <h4>
       <%= ability.description %>
       - <%= ability.users.count %> users rate
+
+      <% if admin?(current_user) %>
+        | <%= link_to "delete", ability, method: :delete, data: { confirm: "Delete ability?" }, title: ability.description %>
+      <% end %>
+
     </h4>
   </p>
 </li>
