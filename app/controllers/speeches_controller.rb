@@ -10,7 +10,7 @@ before_action :signed_in_user
   def destroy
     @language=Speech.find(params[:id]).language
     current_user.forget_language!(@language)
-	flash[:success]="Language forgotten"
+	flash[:warning]="Language forgotten"
 	redirect_to current_user
   end
 end

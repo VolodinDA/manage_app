@@ -1,5 +1,11 @@
 <% @user.rewards.each do |reward| %>
   <li class="list-group-item">
-    <%= reward.title %>
+	<%= form_for(@user.merits.find_by(reward_id: reward.id), html: { method: :delete }) do |f| %>
+		<%= reward.title %>
+		<%= f.hidden_field :user_id%>
+		<% if admin?(current_user) %>
+			<%= f.submit "Disrank", class: "btn" %>
+		<% end %>
+	<% end %>
   </li>
 <% end %>
