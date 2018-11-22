@@ -22,6 +22,14 @@ class DepartmentsController < ApplicationController
   end
 
   def destroy
+    @department=Department.find(params[:id])
+    @designation=@department.designation
+    @department.users.each do |user|
+      user.update_attribute(:department_id, nil)
+    end
+    @department.destroy!
+    flash[:warning] = "#{@designation} department deleted"
+    redirect_to root_url
   end
   
   def show

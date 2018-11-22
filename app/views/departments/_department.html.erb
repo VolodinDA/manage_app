@@ -20,6 +20,11 @@
       </span>
     <% end %>
     </ul>
-
   </h4>
 </li>
+
+<ul>
+  <% if admin?(current_user) %>
+    <%= link_to "delete", department, method: :delete, data: { confirm: "Delete department?" } %>
+  <% end %>
+</ul>
