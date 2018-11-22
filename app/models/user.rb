@@ -11,13 +11,13 @@ class User < ApplicationRecord
 
 	belongs_to :department, foreign_key: "department_id", optional: true
 
-	has_many :speeches, foreign_key: "user_id"
+	has_many :speeches, foreign_key: "user_id", dependent: :destroy
 	has_many :languages, through: :speeches, source: :language
 
-	has_many :characteristics, foreign_key: "user_id"
+	has_many :characteristics, foreign_key: "user_id", dependent: :destroy
 	has_many :abilities, through: :characteristics, source: :ability
 
-	has_many :merits, foreign_key: "user_id"
+	has_many :merits, foreign_key: "user_id", dependent: :destroy
 	has_many :rewards, through: :merits, source: :reward
 
 	# Creating a remember_token to remember the user #

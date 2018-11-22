@@ -1,5 +1,5 @@
 class Language < ApplicationRecord
-  has_many :speeches, foreign_key: "language_id"
+  has_many :speeches, foreign_key: "language_id", dependent: :destroy
   has_many :users, through: :speeches, source: :user
 
   default_scope->{ order('name ASC')}

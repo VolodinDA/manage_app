@@ -10,6 +10,11 @@ class LanguagesController < ApplicationController
   end
 
   def destroy
+    @language=Language.find(params[:id])
+    @name=@language.name
+    @language.destroy!
+    flash[:warning] = " #{@name} language deleted"
+    redirect_to root_path
   end
 
   private

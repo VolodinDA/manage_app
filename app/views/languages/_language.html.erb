@@ -1,8 +1,12 @@
 <li>
   <p>
-     <h4>
-       <%= language.name%>
-       - <%= language.users.count %> speakers
-     </h4>
+    <h4>
+      <%= language.name%>
+      - <%= language.users.count %> speakers
+
+      <% if admin?(current_user) %>
+        | <%= link_to "delete", language, method: :delete, data: { confirm: "Delete language?" }, title: language.name %>
+      <% end %>
+    </h4>
   </p>
 </li>
