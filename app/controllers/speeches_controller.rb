@@ -4,6 +4,7 @@ before_action :signed_in_user
   def create
     @language=Language.find(params[:languages][:id])
     current_user.learn_language!(@language)
+    flash[:success]="Language added"
 	  redirect_to current_user
   end
 

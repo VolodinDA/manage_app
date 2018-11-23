@@ -2,7 +2,7 @@
 	<% if admin?(current_user) && !current_user?(@user) %>
 		<%= form_for(@user, url: toerrand_path, method: :patch) do |f| %>
 			<%= f.hidden_field :id%>
-			<%= f.label "Select an existing errand" %>
+			<%= f.label "Select an errand" %>
 			<%= collection_select(:errands, :id, Errand.all, :id, :address) %>
 			<%= f.submit "Assign errand", class: "btn btn-primary" %>
 		<% end %>

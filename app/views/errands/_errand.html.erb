@@ -15,6 +15,10 @@
           (Errand complete)
         </span>
       <% end %>
+
+      <% if admin?(current_user) %>
+        | <%= link_to "delete", errand, method: :delete, data: { confirm: "Delete errand?" } %>
+      <% end %>
     </ul>
   </h4>
 </li>

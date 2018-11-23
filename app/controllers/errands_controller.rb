@@ -22,6 +22,14 @@ class ErrandsController < ApplicationController
   end
 
   def destroy
+    @errand=Errand.find(params[:id])
+    @address=@errand.address
+    @errand.users.each do |user|
+      user.update_attribute(:errand_id, nil)
+    end
+    @errand.destroy!
+    flash[:warning] = "#{@address} errand deleted"
+    redirect_to root_path
   end
 
   private
