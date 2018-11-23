@@ -47,6 +47,14 @@ class User < ApplicationRecord
 		Language.where("id NOT IN (?)", knowed_langs)
 	end
 
+	def new_rewards
+		knowed_rewards=self.reward_ids
+		if knowed_rewards.blank?
+			knowed_rewards=[0]
+		end
+		Reward.where("id NOT IN (?)", knowed_rewards)
+	end
+
 	private
 	
 	def create_remember_token

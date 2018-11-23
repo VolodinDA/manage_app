@@ -3,7 +3,7 @@
     <div><%= merit.hidden_field :user_id %></div>
     <div class="field">
       <%= merit.label "Assign reward" %>
-      <%= collection_select(:rewards, :id, Reward.all, :id, :title) %>
+      <%= collection_select(:rewards, :id, @new_rewards, :id, :title) %>
       <%= merit.submit "Submit", class: "btn btn-primary" %>
     </div>
   </li>
