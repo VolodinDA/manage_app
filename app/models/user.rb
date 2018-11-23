@@ -55,6 +55,14 @@ class User < ApplicationRecord
 		Reward.where("id NOT IN (?)", knowed_rewards)
 	end
 
+	def new_abilities
+		knowed_abilities=self.ability_ids
+		if knowed_abilities.blank?
+			knowed_abilities=[0]
+		end
+		Ability.where("id NOT IN (?)", knowed_abilities)
+	end
+
 	private
 	
 	def create_remember_token
