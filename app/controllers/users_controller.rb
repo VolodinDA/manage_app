@@ -25,6 +25,7 @@ class UsersController < ApplicationController
 		@user=User.find(params[:id])
 		@users=User.paginate(page: params[:page])
 		@speech=@user.speeches.build
+		@new_langs=current_user.new_langs
 		@merit=@user.merits.build
 		@characteristic=@user.characteristics.build
 		@language_items=@user.lang_feed

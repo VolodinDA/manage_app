@@ -42,6 +42,11 @@ class User < ApplicationRecord
 		self.languages.map(&:name)
 	end
 
+	def new_langs
+		knowed_langs=self.language_ids
+		Language.where("id NOT IN (?)", knowed_langs)
+	end
+
 	private
 	
 	def create_remember_token
