@@ -33,7 +33,7 @@
           <h3><%=Language.count %> Languages</h3>
         </div>
         <div class="panel-body">
-          <ul><%= render @languages %></ul>
+          <ul><%= render_async language_form_path %></ul>
         </div>
         <% if admin?(current_user) %>
           <%= render 'shared/new_language' %>
@@ -47,7 +47,7 @@
           <h3><%=Ability.count %> Abilities</h3>
         </div>
         <div class="panel-body">
-          <ul><%= render @abilities %></ul>
+          <ul><%= render_async ability_form_path %></ul>
         </div>
         <% if admin?(current_user) %>
           <%= render 'shared/new_ability' %>
@@ -65,7 +65,7 @@
           <h3><%= Reward.count %> Rewards</h3>
         </div>
         <div class="panel-body">
-          <ul><%= render @rewards %></ul>
+          <ul><%= render_async reward_form_path %></ul>
         </div>
         <% if admin?(current_user) %>
           <%= render 'shared/new_reward' %>
@@ -79,7 +79,7 @@
           <h3><%= Errand.count %> Errands</h3>
         </div>
         <div class="panel-body">
-          <ul><%= render @errands %></ul>
+          <ul><%= render_async errand_form_path %></ul>
         </div>
         <% if admin?(current_user) %>
           <%= render 'shared/new_errand' %>
