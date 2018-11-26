@@ -38,10 +38,6 @@ class User < ApplicationRecord
 		speeches.find_by(language_id: language.id).destroy!
 	end
 
-	def lang_feed
-		self.languages.map(&:name)
-	end
-
 	def new_langs
 		knowed_langs=self.language_ids
 		Language.where("id NOT IN (?)", knowed_langs)
