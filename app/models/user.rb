@@ -59,6 +59,10 @@ class User < ApplicationRecord
 		Ability.where("id NOT IN (?)", knowed_abilities)
 	end
 
+	def new_errands
+		Errand.where("is_finished=(?)", false)
+	end
+
 	private
 	
 	def create_remember_token

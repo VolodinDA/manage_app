@@ -3,7 +3,7 @@
 		<%= form_for(@user, url: toerrand_path, method: :patch) do |f| %>
 			<%= f.hidden_field :id%>
 			<%= f.label "Select an errand" %>
-			<%= collection_select(:errands, :id, Errand.all, :id, :address) %>
+			<%= collection_select(:errands, :id, @new_errands, :id, :address) %>
 			<%= f.submit "Assign errand", class: "btn btn-primary" %>
 		<% end %>
 	<% end %>

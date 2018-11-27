@@ -28,6 +28,7 @@ class UsersController < ApplicationController
 		@new_langs=current_user.new_langs
 		@new_rewards=@user.new_rewards
 		@new_abilities=@user.new_abilities
+		@new_errands=@user.new_errands
 		@merit=@user.merits.build
 		@characteristic=@user.characteristics.build
 		@language_items=@user.languages
