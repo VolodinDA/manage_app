@@ -38,7 +38,18 @@
 	<% if admin?(current_user) %>
     <div class="col-lg-4">
       <div class="panel panel-info">
-        <%= render_async departments_list_path %>
+        <table class="table table-striped">
+          <tbody>
+          <% @departments.each do |dep| %>
+            <tr>
+              <td><%= dep.designation %></td>
+              <td>
+                <%= radio_button_tag "department[department_id][]", dep.id  %>
+              </td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
       </div>
       <%= f.submit"Assign stuff", class: "btn btn-lg btn-primary"%>
     </div>
