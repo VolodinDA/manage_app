@@ -46,8 +46,12 @@ class UsersController < ApplicationController
 	end
 
 	def index
-		@users=User.paginate(page: params[:page])
+		@users=User.paginate(page: params[:page], :per_page=>15)
+	end
+
+	def departments_list
 		@departments=Department.all
+		render partial: 'departments_list'
 	end
 	
 	def destroy
