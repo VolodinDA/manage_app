@@ -69,7 +69,9 @@
 
 				<h2>Characteristics:</h2>
 				<ul class="list-group">
+          <div class="scroll">
 					<%= render 'character'%>
+          </div>
 					<% if admin?(current_user) && !current_user?(@user) %>
 						<%= render 'new_char'%>
 					<% end %>
