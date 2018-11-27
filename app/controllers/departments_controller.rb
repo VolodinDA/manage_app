@@ -40,6 +40,14 @@ class DepartmentsController < ApplicationController
     @users=@department.users
   end
 
+  def firing
+    @user=User.find(params[:user_id])
+    @department=Department.find(params[:id])
+    @user.update_attribute(:department_id, nil)
+    flash[:warning]="Stuff dissmised"
+    redirect_to @department
+  end
+
   private
 
   def department_params

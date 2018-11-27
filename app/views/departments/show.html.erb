@@ -14,6 +14,9 @@
               <h4>
                 <%= min_avatar_for(user) %>
                 <%= link_to user.name, user %>
+                <% if admin?(current_user) %>
+                  | <%= link_to "release", firing_path( :id=> @department.id,:user_id=>user.id),  method: "patch" %>
+                <% end %>
               </h4>
             </li>
           <% end %>
@@ -30,7 +33,12 @@
       <ul class="list-group">
         <% @objectives.each do |objective| %>
           <li class="list-group-item">
-            <h4><%= objective.description %></h4>
+            <h4>
+              <%= objective.description %>
+              <% if admin?(current_user) && !objective.description.nil?%>
+                | <%= link_to "delete", objective, method: :delete, data: { confirm: "Delete objective?" } %>
+              <% end %>
+            </h4>
           </li>
         <% end %>
       </ul>

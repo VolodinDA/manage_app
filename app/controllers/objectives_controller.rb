@@ -6,7 +6,7 @@ class ObjectivesController < ApplicationController
     @objective=@department.objectives.build(objective_params)
     if @objective.save
       flash[:success] = "Objective assigned"
-      redirect_to root_path
+      redirect_to @department
     else
       @objectives=@department.objectives
       @users=@department.users
@@ -15,6 +15,11 @@ class ObjectivesController < ApplicationController
   end
 
   def destroy
+    @objective=Objective.find(params[:id])
+    @department=Department.find(@objective.department_id)
+    @objective.destroy!
+    flash[:warning]="Objective deleted"
+    redirect_to @department
   end
 
   private
