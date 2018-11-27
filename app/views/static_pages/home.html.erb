@@ -19,7 +19,8 @@
 					<h3><%=Department.count %> Departments</h3>
 				</div>
 				<div class="panel-body">
-					<ul><%= render_async department_form_path %></ul>
+					<ul><%= render @departments %></ul>
+          <%= will_paginate @departments, param_name: 'departments_page' %>
 				</div>
         <% if admin?(current_user) %>
           <%= render 'shared/new_department_form' %>
@@ -33,7 +34,8 @@
           <h3><%=Language.count %> Languages</h3>
         </div>
         <div class="panel-body">
-          <ul><%= render_async language_form_path %></ul>
+          <ul><%= render @languages %></ul>
+          <%= will_paginate @languages, param_name: 'languages_page' %>
         </div>
         <% if admin?(current_user) %>
           <%= render 'shared/new_language' %>
@@ -47,7 +49,8 @@
           <h3><%=Ability.count %> Abilities</h3>
         </div>
         <div class="panel-body">
-          <ul><%= render_async ability_form_path %></ul>
+          <ul><%= render @abilities %></ul>
+          <%= will_paginate @abilities, param_name: 'abilities_page' %>
         </div>
         <% if admin?(current_user) %>
           <%= render 'shared/new_ability' %>
@@ -65,7 +68,8 @@
           <h3><%= Reward.count %> Rewards</h3>
         </div>
         <div class="panel-body">
-          <ul><%= render_async reward_form_path %></ul>
+          <ul><%= render @rewards %></ul>
+          <%= will_paginate @rewards, param_name: 'rewards_page' %>
         </div>
         <% if admin?(current_user) %>
           <%= render 'shared/new_reward' %>
@@ -79,7 +83,8 @@
           <h3><%= Errand.count %> Errands</h3>
         </div>
         <div class="panel-body">
-          <ul><%= render_async errand_form_path %></ul>
+          <ul><%= render @errands %></ul>
+          <%= will_paginate @errands, param_name: 'errands_page' %>
         </div>
         <% if admin?(current_user) %>
           <%= render 'shared/new_errand' %>

@@ -1,31 +1,10 @@
 class StaticPagesController < ApplicationController
 
   def home
+    @departments=Department.paginate(page: params[:departments_page], :per_page=>5)
+    @languages=Language.paginate(page: params[:languages_page], :per_page=>5)
+    @rewards=Reward.paginate(page: params[:rewards_page], :per_page=>5)
+    @errands=Errand.paginate(page: params[:errands_page], :per_page=>5)
+    @abilities=Ability.paginate(page: params[:abilities_page], :per_page=>5)
   end
-
-  def department_form
-    @departments=Department.all
-    render partial: 'departments/department_form'
-  end
-
-  def language_form
-    @languages=Language.all
-    render partial: 'languages/language_form'
-  end
-
-  def reward_form
-    @rewards=Reward.all
-    render partial: 'rewards/reward_form'
-  end
-
-  def errand_form
-    @errands=Errand.all
-    render partial: 'errands/errand_form'
-  end
-
-  def ability_form
-    @abilities=Ability.all
-    render partial: 'abilities/ability_form'
-  end
-
 end
