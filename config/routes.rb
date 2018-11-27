@@ -16,11 +16,6 @@ Rails.application.routes.draw do
   resources :departments
   resources :assignments, only: [:create, :destroy]
   resources :errands
-  get :department_form, controller: :static_pages
-  get :language_form, controller: :static_pages
-  get :ability_form, controller: :static_pages
-  get :reward_form, controller: :static_pages
-  get :errand_form, controller: :static_pages
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,4 +1,4 @@
-<% @abilities_p.each do |ability| %>
+<% @user.abilities.each do |ability| %>
 	<li class="list-group-item">
 		<h4>
 			<%= form_for(@user.characteristics.find_by(ability_id: ability.id), html: { method: :delete }) do |f| %> 
@@ -12,5 +12,3 @@
 		</h4>
 	</li>
 <% end %>
-
-<%= will_paginate @abilities_p, param_name: 'abilities_page' %>

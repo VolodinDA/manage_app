@@ -31,7 +31,6 @@ class UsersController < ApplicationController
 		@merit=@user.merits.build
 		@characteristic=@user.characteristics.build
 		@language_items=@user.languages
-		@abilities_p=@user.abilities.paginate(page: params[:abilities_page], :per_page=>5)
 	end
 
 	def edit
