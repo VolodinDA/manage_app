@@ -1,0 +1,12 @@
+<table class="table table-striped">
+	<tbody>
+		<% @departments.each do |dep| %>
+			<tr>
+				<td><%= dep.designation %></td>
+				<td>
+					<%= radio_button_tag "department[department_id][]", dep.id  %>
+				</td>
+            </tr>
+		<% end %>
+	</tbody>
+</table>
