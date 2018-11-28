@@ -1,6 +1,7 @@
 <% provide(:title, 'Stuff list') %>
 <h1>Stuff list</h1>
 
+<div>
 <%= will_paginate %>
 
 <%= form_with(model: Department, url: assign_path, method: :put)  do |f| %>
@@ -53,9 +54,7 @@
       </div>
       <%= f.submit"Assign stuff", class: "btn btn-lg btn-primary"%>
     </div>
-  </div>
+  </div>  
   <% end %>
-
-  <%= will_paginate %>
-  
 <% end %>
+</div>
