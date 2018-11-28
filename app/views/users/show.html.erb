@@ -25,7 +25,13 @@
 					<hr>
 					<h2>Rewards:</h2>
 					<ul class="list-group">
-						<%= render 'reward' %>
+						<%= render_async reward_list_path(id: @user.id), 'data-turbolinks-track':'reload' do %>
+							<h3>
+								<span class="label label-info">
+									Rewards are loading...
+								</span>
+							</h3>
+						<% end %>
             <% if admin?(current_user) && !current_user?(@user) %>
               <%= render 'new_reward' if signed_in? %>
             <% end %>
@@ -70,7 +76,13 @@
 				<h2>Characteristics:</h2>
 				<ul class="list-group">
           <div class="scroll">
-					<%= render 'character'%>
+					<%= render_async character_path(id: @user.id), 'data-turbolinks-track':'reload' do %>
+						<h3>
+							<span class="label label-info">
+								Characteristic is loading..
+							</span>
+						</h3>	
+					<% end %>
           </div>
 					<% if admin?(current_user) && !current_user?(@user) %>
 						<%= render 'new_char'%>
@@ -81,8 +93,14 @@
 
 				<h2>Languages:</h2>
 				<ul class="list-group">
-          <%= render 'learn_languages' %>
-          <% if current_user?(@user) %>
+          <%= render_async  learn_languages_path(id: @user.id), 'data-turbolinks-track':'reload' do %>
+			<h3>
+				<span class="label label-info">
+					Languages are loading...
+				</span>
+			</h3>
+		  <% end %>
+		  <% if current_user?(@user) %>
             <%= render 'new_lang_form' if signed_in? %>
           <% end %>
 				</ul>

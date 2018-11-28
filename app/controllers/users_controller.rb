@@ -31,7 +31,24 @@ class UsersController < ApplicationController
 		@new_errands=@user.new_errands
 		@merit=@user.merits.build
 		@characteristic=@user.characteristics.build
+	end
+	
+	def reward_list
+		@user=User.find(params[:id])
+		@rewards_p=@user.rewards
+		render partial: 'reward_list'
+	end
+	
+	def learn_languages
+		@user=User.find(params[:id])
 		@language_items=@user.languages
+		render partial: 'learn_languages'
+	end
+	
+	def character	
+		@user=User.find(params[:id])
+		@abilities_p=@user.abilities
+		render partial: 'character'
 	end
 
 	def edit

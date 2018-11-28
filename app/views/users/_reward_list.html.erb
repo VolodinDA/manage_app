@@ -1,4 +1,4 @@
-<% @user.rewards.each do |reward| %>
+<% @rewards_p.each do |reward| %>
   <li class="list-group-item">
 	<%= form_for(@user.merits.find_by(reward_id: reward.id), html: { method: :delete }) do |f| %>
 		<%= reward.title %>
