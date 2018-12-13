@@ -5,7 +5,7 @@ class User < ApplicationRecord
 	VALID_EMAIL_REGEX=/\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 	validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false}
 	validates :password, length: { minimum: 6 }
-	validates :region, presence: true, length: { minimum: 6, maximum: 20}
+	validates :region, presence: true, length: { minimum: 2, maximum: 20}
 	has_secure_password
 
 	belongs_to :errand, foreign_key: "errand_id", optional: true
