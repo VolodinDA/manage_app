@@ -9,8 +9,9 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.date :employment_date
       t.integer :department_id
       t.integer :errand_id
+	  t.string :region
 	    t.string :avatar
-
+		
       t.timestamps
     end
   end

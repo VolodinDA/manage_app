@@ -20,6 +20,9 @@
 
             <%= f.label :password_confirmation, "Confirmation" %>
             <%= f.password_field :password_confirmation %>
+			
+			<%= f.label :region %>
+			<%= f.text_field :region %>
 
             <%= fields_for(@speech) do |sf| %>
               <div class="field">

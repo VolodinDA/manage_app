@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(version: 2018_11_04_135604) do
     t.date "employment_date"
     t.integer "department_id"
     t.integer "errand_id"
+    t.string "region"
     t.string "avatar"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

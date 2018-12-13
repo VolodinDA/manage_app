@@ -68,19 +68,22 @@ def make_users
 								password: "foobar",
 								password_confirmation: "foobar",
 								admin: true,
-								employment_date: "2018-11-01")
+								employment_date: "2018-11-01",
+								region: "Nizny Novgorod State")
 	50.times do |n|
 		name=Faker::Name.unique.name
 		email="example-#{n+1}@exam.org"
 		password="password"
 		avatar=random_avatars
 		employment_date=Faker::Date.backward(50)
+		region=Faker::Address.state
 		User.create!(name: name,
 							 	email: email,
 							 	password: password,
 							 	password_confirmation: password,
 								avatar: avatar,
-								employment_date: employment_date)
+								employment_date: employment_date,
+								region: region)
 	end
 end
 
